@@ -1,4 +1,4 @@
-module example.com/service1
+module github.com/ljrickard/go/internal/service1
 
 go 1.22.3
 
