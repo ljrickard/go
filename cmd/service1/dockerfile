@@ -4,9 +4,12 @@ COPY . ./src/app
 WORKDIR /go/src/app
 
 # TODO: make ljrickard repo private
-
-RUN go get -d -v ./...
+# including -u to get latest
+RUN go get -d -v -u ./...
 RUN go install -v ./...
+
+# clean dependencies
+RUN go mod tidy 
 
 EXPOSE 8080
 
