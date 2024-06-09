@@ -1,41 +1,9 @@
-# FROM golang:1.22.3
-
-# # COPY <src-path> <destination-path>
-# COPY ./../../internal/service1 /go/src/service1
-
-# WORKDIR /go/src/service1
-# # COPY ./ .
-
-# RUN go get -d -v ./...
-# RUN go install -v ./...
-
-
-# # Optional:
-# # To bind to a TCP port, runtime parameters must be supplied to the docker command.
-# # But we can document in the Dockerfile what ports
-# # the application is going to listen on by default.
-# # https://docs.docker.com/reference/dockerfile/#expose
-# EXPOSE 8080
-
-# # Run
-# CMD ["/service1"]
-
-
-# My main.go file's path: /gowork/src/dockerpkgmain/main.go
-
-# my package file's path: /gowork/src/dockerpkg/mult/mult.go
-
-# my docker files path: /gowork/src/dockerpkgmain/Dockerfile
-
-# create it in here
-# my docker files path: /gowork/src/Dockerfile
-
 FROM golang:1.22.3-bullseye
 
-# COPY to-be-copied .
-COPY temp/ ./src
-COPY . ./src
+COPY . ./src/app
 WORKDIR /go/src/app
+
+# TODO: make ljrickard repo private
 
 RUN go get -d -v ./...
 RUN go install -v ./...
@@ -43,4 +11,4 @@ RUN go install -v ./...
 EXPOSE 8080
 
 # Run
-CMD ["/app"]
+CMD ["main"]

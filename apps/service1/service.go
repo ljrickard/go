@@ -10,6 +10,6 @@ func Run() {
 	fmt.Println("running service1")
 	dex := dexter.NewDexter()
 
-	fmt.Println("wait and kill")
+	fmt.Println("wait and kill 2")
 	dex.WaitAndKill()
 }
